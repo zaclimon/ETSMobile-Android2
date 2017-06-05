@@ -19,8 +19,7 @@ import org.ksoap2.serialization.SoapPrimitive;
 
 import java.util.Hashtable;
 
-import ca.etsmtl.applets.etswebservices.signets.soap.DonneesRetournees;
-import ca.etsmtl.applets.etswebservices.signets.soap.ExtendedSoapSerializationEnvelope;
+import ca.etsmtl.applets.etsmobile.http.soap.ExtendedSoapSerializationEnvelope;
 
 public class ListeEvaluationsCours extends DonneesRetournees implements KvmSerializable
 {
@@ -32,7 +31,7 @@ public class ListeEvaluationsCours extends DonneesRetournees implements KvmSeria
     {
     }
 
-    public ListeEvaluationsCours(Object paramObj, ExtendedSoapSerializationEnvelope __envelope)
+    public ListeEvaluationsCours(SoapObject paramObj, ExtendedSoapSerializationEnvelope __envelope)
     {
 	    super(paramObj, __envelope);
 	    if (paramObj == null)
