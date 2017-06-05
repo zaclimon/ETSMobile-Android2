@@ -222,11 +222,11 @@ public class EvaluationCours extends AttributeContainer implements KvmSerializab
         }
         if(propertyIndex==3)
         {
-            return this.DateDebutEvaluation!=null? Helper.getDateTimeFormat().format(this.DateDebutEvaluation):SoapPrimitive.NullSkip;
+            return this.DateDebutEvaluation!=null? this.DateDebutEvaluation:SoapPrimitive.NullSkip;
         }
         if(propertyIndex==4)
         {
-            return this.DateFinEvaluation!=null? Helper.getDateTimeFormat().format(this.DateFinEvaluation):SoapPrimitive.NullSkip;
+            return this.DateFinEvaluation!=null? this.DateFinEvaluation:SoapPrimitive.NullSkip;
         }
         if(propertyIndex==5)
         {

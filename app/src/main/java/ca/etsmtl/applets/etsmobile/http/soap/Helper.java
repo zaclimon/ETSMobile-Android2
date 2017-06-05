@@ -18,6 +18,7 @@ import java.util.UUID;
 import org.joda.time.DateTime;
 import org.joda.time.DateTimeZone;
 import org.joda.time.chrono.ISOChronology;
+import org.joda.time.format.DateTimeFormat;
 import org.joda.time.format.DateTimeFormatter;
 import org.joda.time.format.DateTimeFormatterBuilder;
 import org.joda.time.format.DateTimeParser;
@@ -122,13 +123,6 @@ public class Helper {
 				.appendOptional(offsetElement()).toFormatter().withZone(DateTimeZone.UTC);
 		parser1.withChronology(ISOChronology.getInstanceUTC());
 		return parser1.parseDateTime(strDate);
-	}
-
-	public static SimpleDateFormat getDateTimeFormat()
-	{
-		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss", Locale.US);
-		format.setTimeZone(TimeZone.getTimeZone("UTC"));
-		return format;
 	}
 
 	public static boolean isEmpty(CharSequence str) {
