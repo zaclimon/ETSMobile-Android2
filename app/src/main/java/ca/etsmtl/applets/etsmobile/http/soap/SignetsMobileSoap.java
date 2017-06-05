@@ -25,6 +25,7 @@ import ca.etsmtl.applets.etsmobile.model.Etudiant;
 import ca.etsmtl.applets.etsmobile.model.ListeDeCours;
 import ca.etsmtl.applets.etsmobile.model.ListeDeSessions;
 import ca.etsmtl.applets.etsmobile.model.ListeDesElementsEvaluation;
+import ca.etsmtl.applets.etsmobile.model.ListeEvaluationsCours;
 import ca.etsmtl.applets.etsmobile.model.OperationResult;
 import ca.etsmtl.applets.etsmobile.model.listeCoursHoraire;
 import ca.etsmtl.applets.etsmobile.model.listeDesActivitesEtProf;
@@ -878,6 +879,52 @@ public class SignetsMobileSoap {
 		executeAsync(new Functions.IFunc<listeSeances>() {
 			public listeSeances Func() throws java.lang.Exception {
 				return lireHoraireDesSeances(codeAccesUniversel, motPasse, pCoursGroupe, pSession, pDateDebut, pDateFin);
+			}
+		});
+	}
+
+	public ListeEvaluationsCours lireEvaluationCours(final String codeAccesUniversel, final String motPasse, final String pSession) throws Exception {
+		return (ListeEvaluationsCours) execute(new IWcfMethod() {
+			@Override
+			public ExtendedSoapSerializationEnvelope CreateSoapEnvelope() {
+				ExtendedSoapSerializationEnvelope __envelope = createEnvelope();
+				SoapObject __soapReq = new SoapObject("http://etsmtl.ca/", "lireEvaluationCours");
+				__envelope.setOutputSoapObject(__soapReq);
+
+				PropertyInfo __info = null;
+				__info = new PropertyInfo();
+				__info.namespace = "http://etsmtl.ca/";
+				__info.name = "codeAccesUniversel";
+				__info.type = PropertyInfo.STRING_CLASS;
+				__info.setValue(codeAccesUniversel != null ? codeAccesUniversel : SoapPrimitive.NullSkip);
+				__soapReq.addProperty(__info);
+				__info = new PropertyInfo();
+				__info.namespace = "http://etsmtl.ca/";
+				__info.name = "motPasse";
+				__info.type = PropertyInfo.STRING_CLASS;
+				__info.setValue(motPasse != null ? motPasse : SoapPrimitive.NullSkip);
+				__soapReq.addProperty(__info);
+				__info = new PropertyInfo();
+				__info.namespace = "http://etsmtl.ca/";
+				__info.name = "pSession";
+				__info.type = PropertyInfo.STRING_CLASS;
+				__info.setValue(pSession != null ? pSession : SoapPrimitive.NullSkip);
+				__soapReq.addProperty(__info);
+				return __envelope;
+			}
+
+			@Override
+			public Object ProcessResult(ExtendedSoapSerializationEnvelope __envelope, SoapObject __result) throws Exception {
+				return (ListeEvaluationsCours) getResult(ListeEvaluationsCours.class, __result, "lireEvaluationCoursResult", __envelope);
+			}
+		}, "http://etsmtl.ca/lireEvaluationCours");
+	}
+
+	public void lireEvaluationCoursAsync(final String codeAccesUniversel, final String motPasse, final String pSession) {
+		executeAsync(new Functions.IFunc<ListeEvaluationsCours>() {
+			@Override
+			public ListeEvaluationsCours Func() throws Exception {
+				return lireEvaluationCours(codeAccesUniversel, motPasse, pSession);
 			}
 		});
 	}

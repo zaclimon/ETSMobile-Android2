@@ -27,8 +27,21 @@ public class ListeEvaluationsCours extends DonneesRetournees implements KvmSeria
     
     public ArrayOfEvaluationCours listeEvaluations;
 
-    public ListeEvaluationsCours()
+    public ListeEvaluationsCours (AttributeContainer inObj, ExtendedSoapSerializationEnvelope envelope)
     {
+        super(inObj, envelope);
+        if (inObj == null)
+            return;
+
+
+        SoapObject soapObject=(SoapObject)inObj;
+        if (soapObject.hasProperty("ListeDesSeances"))
+        {
+            SoapObject j = (SoapObject) soapObject.getProperty("ListeDesSeances");
+            this.listeEvaluations = new ArrayOfEvaluationCours(j,envelope);
+        }
+
+
     }
 
     public ListeEvaluationsCours(SoapObject paramObj, ExtendedSoapSerializationEnvelope __envelope)

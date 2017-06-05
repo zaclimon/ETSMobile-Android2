@@ -41,6 +41,7 @@ import ca.etsmtl.applets.etsmobile.model.Etudiant;
 import ca.etsmtl.applets.etsmobile.model.ListeDeCours;
 import ca.etsmtl.applets.etsmobile.model.ListeDeSessions;
 import ca.etsmtl.applets.etsmobile.model.ListeDesElementsEvaluation;
+import ca.etsmtl.applets.etsmobile.model.ListeEvaluationsCours;
 import ca.etsmtl.applets.etsmobile.model.coursHoraire;
 import ca.etsmtl.applets.etsmobile.model.listeCoursHoraire;
 import ca.etsmtl.applets.etsmobile.model.listeDesActivitesEtProf;
@@ -70,6 +71,7 @@ public class ExtendedSoapSerializationEnvelope extends SoapSerializationEnvelope
 		classNames.put("http://etsmtl.ca/^^coursHoraire", coursHoraire.class);
 		classNames.put("http://etsmtl.ca/^^listeJoursRemplaces", listeJoursRemplaces.class);
 		classNames.put("http://etsmtl.ca/^^listeSeances", listeSeances.class);
+		classNames.put("http://etsmtl.ca/^^ListeEvaluationsCours",ListeEvaluationsCours.class);
 	}
 
 	private final String MsNs = "http://schemas.microsoft.com/2003/10/Serialization/";
