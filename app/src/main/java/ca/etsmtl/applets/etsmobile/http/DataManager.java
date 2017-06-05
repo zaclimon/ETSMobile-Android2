@@ -23,6 +23,7 @@ import ca.etsmtl.applets.etsmobile.model.ArrayOfService;
 import ca.etsmtl.applets.etsmobile.model.Etudiant;
 import ca.etsmtl.applets.etsmobile.model.FicheEmploye;
 import ca.etsmtl.applets.etsmobile.model.ListeDeSessions;
+import ca.etsmtl.applets.etsmobile.model.ListeEvaluationsCours;
 import ca.etsmtl.applets.etsmobile.model.Service;
 import ca.etsmtl.applets.etsmobile.model.Trimestre;
 import ca.etsmtl.applets.etsmobile.model.UserCredentials;
@@ -312,8 +313,11 @@ public class DataManager {
 							result = listeJoursRemplaces;
 						
 						break;
-						
 
+					case SignetMethods.LIST_EVALUATIONS_COURS:
+						String pSession7 = reqParams[0];
+						result = signetsMobileSoap.lireEvaluationCours(username, password, pSession7);
+						break;
 					default:
 						break;
 					}
@@ -365,6 +369,7 @@ public class DataManager {
 		public static final int LIST_SEANCES_CURRENT_AND_NEXT_SESSION = 18;
 		public static final int LIST_EXAM_CURRENT_AND_NEXT_SESSION = 19;
 		public static final int LIST_JOURSREMPLACES_CURRENT_AND_NEXT_SESSION = 20;
+		public static final int LIST_EVALUATIONS_COURS = 21;
 	}
 
 
