@@ -9,7 +9,10 @@ package ca.etsmtl.applets.etsmobile.http.soap;
 //
 //---------------------------------------------------
 
+import java.text.SimpleDateFormat;
 import java.util.Hashtable;
+import java.util.Locale;
+import java.util.TimeZone;
 import java.util.UUID;
 
 import org.joda.time.DateTime;
@@ -119,6 +122,13 @@ public class Helper {
 				.appendOptional(offsetElement()).toFormatter().withZone(DateTimeZone.UTC);
 		parser1.withChronology(ISOChronology.getInstanceUTC());
 		return parser1.parseDateTime(strDate);
+	}
+
+	public static SimpleDateFormat getDateTimeFormat()
+	{
+		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss", Locale.US);
+		format.setTimeZone(TimeZone.getTimeZone("UTC"));
+		return format;
 	}
 
 	public static boolean isEmpty(CharSequence str) {
